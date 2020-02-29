@@ -1,0 +1,68 @@
+Microsoft (R) Macro Assembler Version 5.00                  11/13/19 22:58:45
+                                                             Page     1-1
+
+
+ 0000				code segment 
+				assume cs:code 
+				 
+ 0000				start: 
+				 
+ 0000  BA 0010			mov dx,0010h 
+				 
+ 0003				next: 
+ 0003  B9 0010			mov cx,10h 
+				 
+ 0006				loop1: 
+ 0006  B4 02			mov ah,02h 
+ 0008  CD 21			int 21h 
+ 000A  42			inc dx 
+ 000B  52			push dx 
+				 
+ 000C  B2 00			mov dl,0 
+ 000E  CD 21			int 21h 
+ 0010  5A			pop dx 
+ 0011  E2 F3			loop loop1 
+ 0013  52			push dx 
+ 0014  B2 0A			mov dl,0ah 
+ 0016  CD 21			int 21h 
+ 0018  B7 00			mov dl 0dh 
+smascll.ASM(24): error A2028: Operator expected
+ 001A  CD 21			int 21h 
+ 001C  5A			pop dx 
+ 001D  81 FA 0100		cmp dx,100h 
+ 0021  72 E0			jb next 
+ 0023  B4 4C			mov ah,4ch 
+ 0025  CD 21			int 21h 
+ 0027				code ends 
+				end start 
+Microsoft (R) Macro Assembler Version 5.00                  11/13/19 22:58:45
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+CODE . . . . . . . . . . . . . .  	0027	PARA	NONE	
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+LOOP1  . . . . . . . . . . . . .  	L NEAR	0006	CODE
+
+NEXT . . . . . . . . . . . . . .  	L NEAR	0003	CODE
+
+START  . . . . . . . . . . . . .  	L NEAR	0000	CODE
+
+@FILENAME  . . . . . . . . . . .  	TEXT  smascll		
+
+
+     32 Source  Lines
+     32 Total   Lines
+      6 Symbols
+
+  51206 + 465338 Bytes symbol space free
+
+      0 Warning Errors
+      1 Severe  Errors
